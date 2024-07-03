@@ -17,6 +17,7 @@ import { Feather, Octicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import Loading from "@/components/Loading";
 import CustomKeyboardView from "@/components/CustomKeyboardView";
+import { useAuth } from "@/context/authContext";
 
 const signUp = () => {
   const router = useRouter();
@@ -25,6 +26,7 @@ const signUp = () => {
   const passwordRef = useRef("");
   const usernameRef = useRef("");
   const profileRef = useRef("");
+  const { register } = useAuth();
 
   const handleRegister = async () => {
     if (
@@ -37,7 +39,23 @@ const signUp = () => {
       return;
     }
 
-    // login process
+    setloading(true);
+
+    let res = await register(
+      emailRef.current,
+      passwordRef.current,
+      usernameRef.current,
+      profileRef.current
+    );
+
+    setloading(false);
+
+    console.log("go result", res);
+
+    if (!res.success) {
+      Alert.alert("Sign Up", res.msg);
+    }
+    // signup process
   };
 
   return (
