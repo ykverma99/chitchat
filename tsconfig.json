@@ -12,6 +12,13 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "context/authContext.jsx",
-    "firebaseConfig.js"
+    "firebaseConfig.js",
+    "components/ChatItem.jsx",
+    "app/(app)/home.jsx",
+    "components/ChatRoomHeader.jsx",
+    "utils/common.js",
+    "components/CustomKeyboardView.jsx",
+    "app/signIn.jsx",
+    "app/signUp.jsx"
   ]
 }
